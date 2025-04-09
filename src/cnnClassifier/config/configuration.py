@@ -5,7 +5,11 @@ from src.cnnClassifier.constants import *
 from src.cnnClassifier.entity.config_entity import DataIngestionConfig
 from src.cnnClassifier.entity.config_entity import PrepareBaseModelConfig 
 import tensorflow as tf 
-from src.cnnClassifier.entity.config_entity import TrainingConfig
+from src.cnnClassifier.entity.config_entity import TrainingConfig 
+import os 
+import tensorflow as tf
+tf.config.run_functions_eagerly(True)
+
 
 class ConfigurationManager:
     def __init__(

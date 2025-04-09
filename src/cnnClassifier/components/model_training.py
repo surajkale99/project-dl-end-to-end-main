@@ -6,7 +6,10 @@ from zipfile import ZipFile
 import tensorflow as tf
 import time
 from pathlib import Path
-from cnnClassifier.entity.config_entity import TrainingConfig
+from src.cnnClassifier.entity.config_entity import TrainingConfig
+import os
+import tensorflow as tf
+tf.config.run_functions_eagerly(True)
 
 
 class Training:
@@ -17,6 +20,11 @@ class Training:
     def get_base_model(self):
         self.model = tf.keras.models.load_model(
             self.config.updated_base_model_path
+        )
+        self.model.compile(
+            optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
+            loss=tf.keras.losses.CategoricalCrossentropy(),
+            metrics=["accuracy"]
         )
 
     def train_valid_generator(self):
