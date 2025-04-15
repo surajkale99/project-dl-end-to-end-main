@@ -1,7 +1,11 @@
+import sys
+import os
+sys.path.append(os.getcwd())
+
 from src.cnnClassifier.config.configuration import ConfigurationManager
 from src.cnnClassifier.components.model_eval import Evaluation
 from src.cnnClassifier import logger
-import os
+
 
 
 STAGE_NAME = "Evaluation stage"
